@@ -1,0 +1,27 @@
+{
+  "name": "train-times",
+  "productName": "Train Times",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "ISC",
+  "author": "Anton Rand",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager ./ --platform=darwin --arch=x64 --out=out --icon=./icon.icns --overwrite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antonrand/train-times.git"
+  },
+  "bugs": {
+    "url": "https://github.com/antonrand/train-times/issues"
+  },
+  "homepage": "https://github.com/antonrand/train-times#readme",
+  "devDependencies": {
+    "electron-packager": "^7.3.0",
+    "electron-prebuilt": "^1.2.7"
+  },
+  "dependencies": {
+    "electron-positioner": "^3.0.0"
+  }
+}

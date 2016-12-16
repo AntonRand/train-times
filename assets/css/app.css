@@ -1,0 +1,13 @@
+body {
+	background-color: #3D3D3D;
+}
+
+h1, h2, h3, h4 {
+	color: #fff;
+}
+
+.last-updated {
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+}
