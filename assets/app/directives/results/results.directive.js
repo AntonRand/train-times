@@ -4,7 +4,7 @@ angular
     return {
       restrict: 'E',
       templateUrl: 'assets/app/directives/results/results.template.html',
-      controller: function($scope, TrainSearchService) {
+      controller: function($scope, $interval, TrainSearchService) {
 
         var ON_TIME = "On time";
         var DELAYED = "Delayed";
@@ -26,11 +26,13 @@ angular
           return getMinutesString(result.etd);
         }
 
-        TrainSearchService.getTrains().then(
+        $scope.getTrains = function() {
+
+          TrainSearchService.getTrains().then(
           function(results){
 
             results.forEach(function(result) {
-              
+                
               if (result.isCancelled) {
                 result.status = CANCELLED;
               } else if (result.etd === "On time") {
@@ -40,14 +42,23 @@ angular
                 result.timeUntilDeparture = getEtdMinutesString(result);
                 result.status = DELAYED;
               }
-              
+                
             });
 
             $scope.results=results;
             $scope.error = false;
+            $scope.lastUpdatedTime = moment().format('HH:mm:ss');
           },
           function(){$scope.error = true;}
-        )
+          )
+
+        }
+
+        $scope.getTrains();
+
+
+        $interval($scope.getTrains, 120000);
+
 
       }
     }

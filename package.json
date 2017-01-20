@@ -1,6 +1,6 @@
 {
-  "name": "train-times",
-  "productName": "Train Times",
+  "name": "rail-client",
+  "productName": "Rail Client",
   "version": "1.0.0",
   "main": "main.js",
   "license": "ISC",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/antonrand/train-times.git"
+    "url": "git+https://github.com/antonrand/rail-client.git"
   },
   "bugs": {
-    "url": "https://github.com/antonrand/train-times/issues"
+    "url": "https://github.com/antonrand/rail-client/issues"
   },
-  "homepage": "https://github.com/antonrand/train-times#readme",
+  "homepage": "https://github.com/antonrand/rail-client#readme",
   "devDependencies": {
-    "electron-packager": "^7.3.0",
+    "electron-packager": "^8.5.0",
     "electron-prebuilt": "^1.2.7"
   },
   "dependencies": {
