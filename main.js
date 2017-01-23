@@ -1,4 +1,4 @@
-const {app, BrowserWindow, ipcMain, Tray} = require('electron')
+const {app, BrowserWindow, ipcMain, Tray, Menu} = require('electron')
 const path = require('path')
 var Positioner = require('electron-positioner')
 
@@ -28,6 +28,20 @@ const createTray = () => {
   tray.on('right-click', toggleWindow)
   tray.on('double-click', toggleWindow)
   tray.on('click', toggleWindow)
+
+  var contextMenu = Menu.buildFromTemplate([
+    { label: 'Quit',
+      accelerator: 'Command+Q',
+      selector: 'terminate:',
+      click: function() {
+        app.quit();
+      }
+    }
+  ]);
+
+
+tray.setContextMenu(contextMenu);
+
 }
 
 const getWindowPosition = () => {
